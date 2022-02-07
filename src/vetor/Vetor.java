@@ -20,7 +20,7 @@ public class Vetor {
 //   }
 
     public boolean addVetor(String elemento) throws Exception {
-
+        this.aumentaCapacidade();
         //verificar se o tamanho é menor que a capacidade do vetor de elementos
 
         if (this.tamanho < this.elementos.length) {
@@ -36,6 +36,7 @@ public class Vetor {
         if (!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         }
+        this.aumentaCapacidade();
 
         //para iterar o vetor
         for(int i=this.tamanho; i>=posicao; i--){
@@ -47,6 +48,18 @@ public class Vetor {
 
         return true;
     }
+
+    private void aumentaCapacidade(){
+        if (this.tamanho == this.elementos.length){
+            String[] elementosNovos = new String[this.elementos.length * 2]; //aqui eu estou duplicando a capacidade do vetor
+            for (int i=0; i<this.elementos.length; i++){
+                elementosNovos[i] = this.elementos[i];
+            }
+            this.elementos = elementosNovos;
+
+        }
+    }
+
 
     public String busca(int posicao){
         if (!(posicao >= 0 && posicao < tamanho)){
