@@ -39,6 +39,17 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
+    public int buscaElemento(String elemento){
+        //algoritmo mais simples que existe é o algoritmo de busca sequencial
+        for (int i=0; i<this.tamanho; i++){
+            if (this.elementos[i].equals(elemento)){
+                return 1;
+            }
+        }
+        return -1;
+
+    }
+
     public int getTamanho(){
         return this.tamanho;
     }
