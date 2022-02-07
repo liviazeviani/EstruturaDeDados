@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package vetor;
 
 public class Vetor {
 

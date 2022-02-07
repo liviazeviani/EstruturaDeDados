@@ -1,3 +1,5 @@
+package vetor;
+
 public class Aula5 {
     public static void main(String[] args) throws Exception {
 
