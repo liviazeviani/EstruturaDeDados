@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Vetor {
 
     private String[] elementos;
@@ -27,13 +29,15 @@ public class Vetor {
         } else {
             throw new Exception("Não é possível adicionar um novo elemento");
         }
-        this.elementos[this.tamanho] = elemento;
-        this.tamanho++;
+
     }
 
     public int getTamanho(){
         return this.tamanho;
     }
 
-
+    @Override
+    public String toString() {
+        return Arrays.toString(elementos);
+    }
 }
