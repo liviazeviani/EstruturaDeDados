@@ -19,17 +19,33 @@ public class Vetor {
 //       }
 //   }
 
-    public void addVetor(String elemento) throws Exception {
+    public boolean addVetor(String elemento) throws Exception {
 
         //verificar se o tamanho é menor que a capacidade do vetor de elementos
 
         if (this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = elemento;
             this.tamanho++;
-        } else {
-            throw new Exception("Não é possível adicionar um novo elemento");
+            return true;
         }
 
+        return false;
+    }
+
+    public boolean addVetor(int posicao, String elemento){
+        if (!(posicao >= 0 && posicao < tamanho)){
+            throw new IllegalArgumentException("Posição inválida");
+        }
+
+        //para iterar o vetor
+        for(int i=this.tamanho; i>=posicao; i--){
+            //agora movendo os elementos
+            this.elementos[i+1] = this.elementos[i];
+        }
+        this.elementos[posicao] = elemento;
+        this.tamanho++;
+
+        return true;
     }
 
     public String busca(int posicao){
@@ -38,6 +54,7 @@ public class Vetor {
         }
         return this.elementos[posicao];
     }
+
 
     public int buscaElemento(String elemento){
         //algoritmo mais simples que existe é o algoritmo de busca sequencial
@@ -49,6 +66,7 @@ public class Vetor {
         return -1;
 
     }
+
 
     public int getTamanho(){
         return this.tamanho;
@@ -75,4 +93,5 @@ public class Vetor {
 
         return s.toString();
     }
+
 }
